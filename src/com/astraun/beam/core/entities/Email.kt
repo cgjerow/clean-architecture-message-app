@@ -4,9 +4,9 @@ interface Email : Contactable, Messageable
 {
     override
     fun toString(): String
-    fun update(email: Email): Unit
+    fun update(email: Email)
     fun isPrimary(): Boolean
-    fun makePrimary(): Unit
+    fun makePrimary()
     override
     fun getContactDetails(): String
     {

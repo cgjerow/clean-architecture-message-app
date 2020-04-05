@@ -4,10 +4,10 @@ import com.astraun.beam.core.entities.Entity
 
 interface UnitOfWork
 {
-    fun registerNew(entity: Entity): Unit
-    fun registerDirty(entity: Entity): Unit
-    fun registerClean(entity: Entity): Unit
-    fun registerDelete(entity: Entity): Unit
-    fun commit(): Unit
-    fun rollback(): Unit
+    fun registerNew(entity: Entity)
+    fun registerDirty(entity: Entity)
+    fun registerClean(entity: Entity)
+    fun registerDelete(entity: Entity)
+    fun commit()
+    fun rollback()
 }

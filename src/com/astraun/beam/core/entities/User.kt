@@ -10,10 +10,10 @@ interface User : Context
     fun getPrimaryEmail(): Email
     fun setPrimaryEmail(email: Email)
     fun getAccounts(): List<Account>
-    fun deactivate(): Unit
-    fun reactivate(): Unit
+    fun deactivate()
+    fun reactivate()
 
     // Danger Zone
-    fun unsafeDeleteUser(): Unit
-    fun unsafeDisassociateContexts(): Unit
+    fun unsafeDeleteUser()
+    fun unsafeDisassociateContexts()
 }
