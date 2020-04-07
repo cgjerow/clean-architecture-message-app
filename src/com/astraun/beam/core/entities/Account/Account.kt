@@ -3,10 +3,9 @@ package com.astraun.beam.core.entities
 interface Account 
 {
     fun deactivate()
-    fun reactivate()
+    fun activate()
     fun getPreferredContactMethod(): Contactable
 
     // Danger Zone
-    fun unsafeHardDelete()
-    fun unsafeDisassociateContexts()
+    // fun unsafeDisassociateContexts()
 }
