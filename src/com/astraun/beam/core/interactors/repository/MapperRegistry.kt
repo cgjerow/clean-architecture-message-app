@@ -7,7 +7,7 @@ import kotlin.reflect.full.createInstance
 
 internal class MapperRegistry
 {
-    private val mappers = mapOf<KClass<*>,KClass<out DataMapper>>( Account::class to AccountMapper::class ) // TODO initialize this from some metadata
+    private val mappers = mapOf<KClass<out Entity>,KClass<out DataMapper>>( Account::class to AccountMapper::class ) // TODO initialize this from some metadata
     fun get(className: KClass<Entity>): DataMapper
     {
         val mapper = this.mappers[className]

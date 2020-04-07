@@ -1,6 +1,6 @@
 package com.astraun.beam.core.entities
 
-interface Account
+interface Account : Entity
 {
     fun deactivate()
     fun activate()

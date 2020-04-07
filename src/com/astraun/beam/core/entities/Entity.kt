@@ -1,16 +1,26 @@
 package com.astraun.beam.core.entities
 
-public abstract class Entity
+interface Entity
+{
+    fun getId(): String
+}
+
+abstract class BeamEntity : Entity
 {
     private val id: UUID
 
-    public constructor()
+    constructor()
     {
         this.id = IdGeneratorPlugin().generate()
     }
 
-    public constructor(id: String)
+    constructor(id: String)
     {
         this.id = IdGeneratorPlugin().generate(id)
+    }
+
+    override fun getId(): String
+    {
+        return this.id.toString()
     }
 }
