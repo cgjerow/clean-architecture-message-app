@@ -1,6 +1,7 @@
 package com.astraun.beam.core.interactors
 
 import com.astraun.beam.core.entities.Entity
+import kotlin.reflect.full.superclasses
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 
@@ -54,9 +55,9 @@ class BeamUnitOfWork : UnitOfWork
 
     override fun commit()
     {
-//        insertNew()
-//        updateDirty()
-//        deleteRemoved()
+        insertNew()
+        updateDirty()
+        deleteRemoved()
     }
 
     override fun rollback()
@@ -65,20 +66,20 @@ class BeamUnitOfWork : UnitOfWork
     }
 
 
-    fun insertNew()
+    private fun insertNew()
     {
-//        for (Iterator objects = newObjects.iterator()  objects.hasNext()) {
-//            DomainObject obj = (DomainObject) objects.next()
-//            MapperRegistry.getMapper(obj.getClass()).insert(obj)
-//        }
+        newObjects.forEach { entity ->
+            MapperRegistry().get(entity::class.superclasses).insert(entity)
+            println(entity)
+        }
     }
 
-    fun updateDirty()
+    private fun updateDirty()
     {
 
     }
 
-    fun deleteRemoved()
+    private fun deleteRemoved()
     {
 
     }

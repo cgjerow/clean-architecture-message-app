@@ -1,6 +1,6 @@
 package com.astraun.beam.core.entities
 
-class JavaUUIDWrapper : UUID
+internal class JavaUUIDWrapper : UUID
 {
 
     private val uuid: java.util.UUID
