@@ -10,8 +10,4 @@ interface User : Entity, Context
     fun getAccounts(): List<Account>
     fun deactivate()
     fun reactivate()
-
-    // Danger Zone
-    fun unsafeDeleteUser()
-    fun unsafeDisassociateContexts()
 }
