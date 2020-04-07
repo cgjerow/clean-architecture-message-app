@@ -4,7 +4,7 @@ import com.astraun.beam.core.entities.AstraunAccount
 import com.astraun.beam.core.entities.BasicEmail
 import com.astraun.beam.core.entities.Entity
 
-internal class AccountMapper : DataMapper()
+class AccountMapper : DataMapper()
 {
     override fun find(query: String): List<Entity>
     {

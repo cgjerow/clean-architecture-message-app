@@ -1,10 +1,8 @@
 package com.astraun.beam.core.entities.com.astraun.beam.core.entities
 
-import com.astraun.beam.core.entities.Account
-import com.astraun.beam.core.entities.Context
-import com.astraun.beam.core.entities.Email
+import com.astraun.beam.core.entities.*
 
-interface User : Context
+interface User : Entity, Context
 {
     fun getDisplayName(): String
     fun getPrimaryEmail(): Email

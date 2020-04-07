@@ -11,12 +11,12 @@ abstract class BeamEntity : Entity
 
     constructor()
     {
-        this.id = IdGeneratorPlugin().generate()
+        this.id = IdGeneratorPluginFactory().generate()
     }
 
     constructor(id: String)
     {
-        this.id = IdGeneratorPlugin().generate(id)
+        this.id = IdGeneratorPluginFactory().generate(id)
     }
 
     override fun getId(): String

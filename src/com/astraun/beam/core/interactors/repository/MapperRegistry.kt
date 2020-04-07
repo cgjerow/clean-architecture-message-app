@@ -5,7 +5,7 @@ import com.astraun.beam.core.entities.Entity
 import kotlin.reflect.KClass
 import kotlin.reflect.full.createInstance
 
-internal class MapperRegistry
+class MapperRegistry
 {
     private val mappers = mapOf<KClass<out Entity>,KClass<out DataMapper>>( Account::class to AccountMapper::class ) // TODO initialize this from some metadata
     fun get(className: KClass<Entity>): DataMapper
@@ -16,7 +16,7 @@ internal class MapperRegistry
     }
 }
 
-internal abstract class DataMapper
+abstract class DataMapper
 {
     abstract fun find(query: String): List<Entity>
     abstract fun insert(entity: Entity)
@@ -24,4 +24,4 @@ internal abstract class DataMapper
     abstract fun delete(entity: Entity)
 }
 
-public class MapperRegistryException(s: String) : Exception(s) {}
+class MapperRegistryException(s: String) : Exception(s) {}

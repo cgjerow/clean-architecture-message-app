@@ -1,6 +1,6 @@
 package com.astraun.beam.core.entities
 
-public class IdGeneratorPlugin
+class IdGeneratorPluginFactory
 {
     fun generate(): UUID
     {
