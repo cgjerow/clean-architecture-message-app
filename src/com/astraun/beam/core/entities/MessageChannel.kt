@@ -1,6 +1,6 @@
 package com.astraun.beam.core.entities
 
-interface Messageable
+interface MessageChannel
 {
     fun send(message: String)
 }

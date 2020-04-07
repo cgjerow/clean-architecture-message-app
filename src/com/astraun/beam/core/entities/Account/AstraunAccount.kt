@@ -1,6 +1,6 @@
 package com.astraun.beam.core.entities
 
-class AstraunAccount : Entity, Account
+class AstraunAccount : BeamEntity, Account
 {
     private var active = false;
     private var preferredContactMethod: Contactable

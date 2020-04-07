@@ -1,11 +1,14 @@
 package com.astraun.beam.core.interactors
 
+import com.astraun.beam.core.entities.AstraunAccount
+import com.astraun.beam.core.entities.BasicEmail
 import com.astraun.beam.core.entities.Entity
 
 internal class AccountMapper : DataMapper()
 {
-    override fun find(query: String): List<Entity> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun find(query: String): List<Entity>
+    {
+        return listOf(AstraunAccount("123456",true, BasicEmail("test@hello.com")))
     }
 
     override fun insert(entity: Entity) {
