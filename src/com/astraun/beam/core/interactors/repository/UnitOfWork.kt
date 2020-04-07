@@ -1,6 +1,8 @@
 package com.astraun.beam.core.interactors
 
 import com.astraun.beam.core.entities.Entity
+import kotlin.test.assertNotNull
+import kotlin.test.assertTrue
 
 interface UnitOfWork
 {
@@ -20,17 +22,17 @@ class BeamUnitOfWork : UnitOfWork
 
     override fun registerNew(obj: Entity)
     {
-//        Assert.notNull("id not null", obj.getId())
-//        Assert.isTrue("object not dirty", !dirtyObjects.contains(obj))
-//        Assert.isTrue("object not removed", !removedObjects.contains(obj))
-//        Assert.isTrue("object not already registered new", !newObjects.contains(obj))
+        assertNotNull(obj.getId(),"id not null")
+        assertTrue(!dirtyObjects.contains(obj),"object not dirty")
+        assertTrue(!removedObjects.contains(obj),"object not removed")
+        assertTrue(!newObjects.contains(obj),"object not already registered new")
         newObjects.add(obj)
     }
 
     override fun registerDirty(obj: Entity)
     {
-//        Assert.notNull("id not null", obj.getId())
-//        Assert.isTrue("object not removed", !removedObjects.contains(obj))
+        assertNotNull(obj.getId(), "id not null")
+        assertTrue(!removedObjects.contains(obj), "object not removed")
         if (!dirtyObjects.contains(obj) && !newObjects.contains(obj)) {
             dirtyObjects.add(obj)
         }
@@ -38,7 +40,7 @@ class BeamUnitOfWork : UnitOfWork
 
     override fun registerDelete(obj: Entity)
     {
-//        Assert.notNull("id not null", obj.getId())
+        assertNotNull(obj.getId(), "id not null")
         if (newObjects.remove(obj)) return
         dirtyObjects.remove(obj)
         if (!removedObjects.contains(obj)) removedObjects.add(obj)
@@ -47,6 +49,7 @@ class BeamUnitOfWork : UnitOfWork
     override fun registerClean(obj: Entity)
     {
 //        Assert.notNull("id not null", obj.getId())
+        assertNotNull(obj.getId(), "id not null")
     }
 
     override fun commit()
