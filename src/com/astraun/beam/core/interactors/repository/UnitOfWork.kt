@@ -15,11 +15,18 @@ interface UnitOfWork
     fun rollback()
 }
 
-class BeamUnitOfWork : UnitOfWork
+abstract class EntityUnitOfWork : UnitOfWork
 {
     private val dirtyObjects = mutableListOf<Entity>()
     private val removedObjects = mutableListOf<Entity>()
     private val newObjects = mutableListOf<Entity>()
+
+    private val mapperFactory: EntityDataMapperFactory
+
+    constructor(mapperFactory: EntityDataMapperFactory)
+    {
+        this.mapperFactory = mapperFactory
+    }
 
     override fun registerNew(obj: Entity)
     {
@@ -49,7 +56,6 @@ class BeamUnitOfWork : UnitOfWork
 
     override fun registerClean(obj: Entity)
     {
-//        Assert.notNull("id not null", obj.getId())
         assertNotNull(obj.getId(), "id not null")
     }
 
@@ -69,7 +75,7 @@ class BeamUnitOfWork : UnitOfWork
     private fun insertNew()
     {
         newObjects.forEach { entity ->
-            MapperRegistry().get(entity::class.superclasses).insert(entity)
+            this.mapperFactory.build(entity::class.superclasses).insert(entity)
         }
     }
 
@@ -83,4 +89,9 @@ class BeamUnitOfWork : UnitOfWork
 
     }
 
+}
+
+class BeamUnitOfWork : EntityUnitOfWork
+{
+    constructor(mapperFactory: EntityDataMapperFactory) : super(mapperFactory) {}
 }

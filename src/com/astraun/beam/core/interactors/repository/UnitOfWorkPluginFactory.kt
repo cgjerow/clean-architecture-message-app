@@ -4,6 +4,6 @@ class UnitOfWorkPluginFactory
 {
     fun generate(): UnitOfWork
     {
-        return BeamUnitOfWork()
+        return BeamUnitOfWork(EntityDataMapperFactory())
     }
 }

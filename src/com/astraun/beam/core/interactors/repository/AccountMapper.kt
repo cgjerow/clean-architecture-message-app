@@ -11,15 +11,18 @@ class AccountMapper : DataMapper()
         return listOf(AstraunAccount("123456",true, BasicEmail("test@hello.com")))
     }
 
-    override fun insert(entity: Entity) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun insert(entity: Entity)
+    {
+        println(entity)
     }
 
-    override fun update(entity: Entity) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun update(entity: Entity)
+    {
+        println(entity)
     }
 
-    override fun delete(entity: Entity) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun delete(entity: Entity)
+    {
+        println(entity)
     }
 }
