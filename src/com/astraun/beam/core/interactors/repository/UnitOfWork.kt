@@ -70,7 +70,6 @@ class BeamUnitOfWork : UnitOfWork
     {
         newObjects.forEach { entity ->
             MapperRegistry().get(entity::class.superclasses).insert(entity)
-            println(entity)
         }
     }
 
